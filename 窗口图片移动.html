@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .father{
+          height: 300px;
+          width: 800px;
+          margin: 200px auto;
+          position: relative;
+          /* background: red; */
+          overflow: hidden;
+        }
+
+        .father ul{
+          list-style:none;
+          position:absolute;
+          width: 2400px;
+          height: 300px;
+        }
+
+        .father ul li {
+          float: left;
+        }
+
+        .father ul li img{
+          width: 400px;
+          height: 300px;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js" ></script>
+    <script>
+        $(function () {
+          //1.定义变量
+          var interid = null,offset=0;
+          //2. 移动函数
+          function autoplay() {
+            interid = setInterval(function () {
+                offset += -5;
+                $('ul').css("marginLeft",offset);
+                if (offset <-1600) {
+                  offset =0;
+                }
+            }, 50);
+          };
+          autoplay();
+          //3.移入li表的时候,让别的淡出,停止定时器
+          $("li").hover(function () {
+            //3.1.1停止滚动
+                clearInterval(interid);
+            // 3.1.2 别的淡出
+            $(this).siblings().stop().fadeTo("slow", 0.3);
+          },function () {
+            // 3.2.1 继续执行定时器
+             autoplay();
+             // 3.2.2  别的淡入出来
+             $(this).siblings().stop().fadeTo("slow", 1);
+          })
+        })
+    </script>
+</head>
+<body>
+
+  <div class="father">
+    <ul>
+      <li><img src="image/1.jpg" alt=""></li>
+      <li><img src="image/2.jpg" alt=""></li>
+      <li><img src="image/3.jpg" alt=""></li>
+      <li><img src="image/4.jpg" alt=""></li>
+      <li><img src="image/1.jpg" alt=""></li>
+      <li><img src="image/2.jpg" alt=""></li>
+    </ul>
+  </div>
+
+</body>
+</html>
