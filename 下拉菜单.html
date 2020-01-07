@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        #father{
+            margin: 100px auto;
+            list-style: none;
+            width:300px;
+        }
+
+        #father>li{
+            border: 1px solid #000;
+            line-height: 50px;
+            border-bottom: none;
+            position: relative;
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: larger;
+            text-align: center;
+        }
+
+        #father>li>span{
+           background: url("image/arrow.jpg") no-repeat;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: 0;
+            /* transform:rotate(90deg); */
+        }
+
+        .son>li{
+            list-style: none;
+            background: #0fb2fc;
+            border: 1px solid #000;
+            cursor: pointer;
+            /*display: none;*/
+        }
+
+        .son>li:hover{
+            background: red;
+        }
+
+
+        #father>li:last-child{
+            border-bottom:1px solid #000;
+        }
+
+        .son{
+            display: none;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js" ></script>
+    <script>
+        $(function () {
+            // 1.获取标签
+            $('#father>li').click(function () {
+                // 2.拿到二级菜单
+                var $ul_son = $(this).children('.son');
+                //3.让别的收起
+                $(this).siblings().children('.son').slideUp(500);
+                //6.让别的图片不旋转
+                $(this).siblings().children().css({
+                  "transform":"rotate(0deg)",
+                });
+                //4.让本li显示
+                $ul_son.slideToggle(500);
+                //5.图片旋转
+                $(this).children().eq(0).css({
+                  "transform":"rotate(90deg)",
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+
+<ul id="father">
+    <li>一级菜单A<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单B<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单C<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单C<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单D<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单E<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单F<span></span>
+        <ul class="son">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>
