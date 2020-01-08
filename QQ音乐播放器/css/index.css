@@ -62,10 +62,39 @@
 
 /* 内容 */
 #content{
-  width: 100%;
+  width: 1600px;
   height: 800px;
   background: green;
+  margin: 0 auto;
   position: relative;
+}
+
+#content_left{
+  width:1200px;
+  height: 800px;
+  background: yellow;
+  float: left;
+  position: absolute;
+  display: inline-block;
+}
+
+#content_list_head span{
+   display:inline-block;
+   width: 122px;
+   height: 100%;
+   line-height: 40px;
+   text-align: center;
+   border: 1px solid #fff;
+   box-sizing: border-box;
+   border-radius: 15px;
+}
+
+#content_right{
+  width:400px;
+  height: 800px;
+  background: pink;
+  display: inline-block;
+  float: right;
 }
 
 /* 尾部 */
